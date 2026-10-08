@@ -2,9 +2,10 @@
   "name": "auto-disable-extensions",
   "displayName": "Auto Disable Extensions",
   "description": "Automatically disables the extensions each workspace doesn't need. Zero config: detects the project and keeps only what it uses.",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "publisher": "elpandap",
   "license": "MIT",
+  "icon": "images/icon.png",
   "repository": {
   "type": "git",
   "url": "https://github.com/ElPandaP/vscode-auto-disable-extensions.git"

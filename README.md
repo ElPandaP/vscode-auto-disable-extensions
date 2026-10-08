@@ -1,7 +1,6 @@
 # VSCode Auto Disable Extensions
 
-[![VS Code Marketplace](https://vsmarketplacebadges.dev/version/elpandap.auto-disable-extensions.svg?label=VS%20Code%20Marketplace)](https://marketplace.visualstudio.com/items?itemName=elpandap.auto-disable-extensions)
-[![Installs](https://vsmarketplacebadges.dev/installs-short/elpandap.auto-disable-extensions.svg)](https://marketplace.visualstudio.com/items?itemName=elpandap.auto-disable-extensions)
+[![VS Code Marketplace](https://img.shields.io/badge/VS%20Code%20Marketplace-Install-brightgreen?logo=visualstudiocode)](https://marketplace.visualstudio.com/items?itemName=elpandap.auto-disable-extensions)
 
 **[Install from the VS Code Marketplace](https://marketplace.visualstudio.com/items?itemName=elpandap.auto-disable-extensions)**, or run `ext install elpandap.auto-disable-extensions` from the Quick Open (`Ctrl+P`).
 
