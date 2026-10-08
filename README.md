@@ -1,6 +1,9 @@
 # VSCode Auto Disable Extensions
 
-> **Coming soon to the VS Code Marketplace.**
+[![VS Code Marketplace](https://img.shields.io/visual-studio-marketplace/v/elpandap.auto-disable-extensions?label=VS%20Code%20Marketplace)](https://marketplace.visualstudio.com/items?itemName=elpandap.auto-disable-extensions)
+[![Installs](https://img.shields.io/visual-studio-marketplace/i/elpandap.auto-disable-extensions)](https://marketplace.visualstudio.com/items?itemName=elpandap.auto-disable-extensions)
+
+**[Install from the VS Code Marketplace](https://marketplace.visualstudio.com/items?itemName=elpandap.auto-disable-extensions)**, or run `ext install elpandap.auto-disable-extensions` from the Quick Open (`Ctrl+P`).
 
 Most of your extensions are only useful in some projects, yet VS Code loads all of them everywhere:
 the C# tools in your Rust repo, Python in your website. That means a slower editor, a side bar
