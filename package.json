@@ -1,0 +1,76 @@
+{
+  "name": "auto-disable-extensions",
+  "displayName": "Auto Disable Extensions",
+  "description": "Automatically disables the extensions each workspace doesn't need. Zero config: detects the project and keeps only what it uses.",
+  "version": "0.2.0",
+  "publisher": "elpandap",
+  "license": "MIT",
+  "engines": { "vscode": "^1.90.0" },
+  "categories": ["Other"],
+  "keywords": ["disable extensions", "extension disabler", "extension manager", "per workspace", "per project", "auto disable", "profiles", "performance", "lightweight"],
+  "main": "./dist/extension.js",
+  "activationEvents": ["onStartupFinished"],
+  "contributes": {
+    "commands": [
+      { "command": "autoDisableExtensions.menu", "title": "Show Menu", "category": "Auto Disable Extensions" },
+      { "command": "autoDisableExtensions.apply", "title": "Apply to This Workspace", "category": "Auto Disable Extensions" },
+      { "command": "autoDisableExtensions.redetect", "title": "Re-detect Technologies", "category": "Auto Disable Extensions" },
+      { "command": "autoDisableExtensions.showReport", "title": "Show Extension Report", "category": "Auto Disable Extensions" },
+      { "command": "autoDisableExtensions.revert", "title": "Enable All Extensions Here", "category": "Auto Disable Extensions" }
+    ],
+    "configuration": {
+      "title": "Auto Disable Extensions",
+      "properties": {
+        "autoDisableExtensions.mode": {
+          "type": "string",
+          "enum": ["ask", "auto", "off"],
+          "enumDescriptions": ["Ask before changing a workspace's extensions.", "Apply automatically when a workspace is opened.", "Only detect; never change anything."],
+          "default": "ask",
+          "description": "What Auto Disable Extensions does when a workspace needs a different set of extensions. Applying reloads the window."
+        },
+        "autoDisableExtensions.extensions": {
+          "type": "object",
+          "default": {},
+          "markdownDescription": "Your rules per extension id: `\"always\"`, `\"never\"`, or `{ \"languages\": [], \"files\": [], \"deps\": [] }` (deps like `npm:react`, `cargo:tauri`).",
+          "additionalProperties": {
+            "anyOf": [
+              { "type": "string", "enum": ["always", "never"] },
+              {
+                "type": "object",
+                "properties": {
+                  "languages": { "type": "array", "items": { "type": "string" } },
+                  "files": { "type": "array", "items": { "type": "string" } },
+                  "deps": { "type": "array", "items": { "type": "string" } },
+                  "mode": { "type": "string", "enum": ["replace", "add"] }
+                }
+              }
+            ]
+          }
+        },
+        "autoDisableExtensions.scanExclude": {
+          "type": "array",
+          "items": { "type": "string" },
+          "default": ["node_modules", ".git", "target", "dist", "build", "out", "bin", "obj", ".venv", "venv", "__pycache__", ".next", ".nuxt", "vendor", ".gradle", ".idea", "coverage"],
+          "description": "Folder names skipped while scanning the workspace."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "build": "bun build src/extension.ts --outdir dist --target node --format cjs --external vscode --sourcemap=linked",
+    "typecheck": "tsc --noEmit",
+    "test": "bun test",
+    "package": "bun run build && bun x @vscode/vsce package --no-dependencies --allow-missing-repository"
+  },
+  "dependencies": {
+    "picomatch": "^4.0.2",
+    "smol-toml": "^1.3.1"
+  },
+  "devDependencies": {
+    "@types/bun": "^1.4.2",
+    "@types/node": "^20.0.0",
+    "@types/picomatch": "^3.0.1",
+    "@types/vscode": "~1.90.0",
+    "typescript": "^5.6.0"
+  }
+}

@@ -1,0 +1,38 @@
+{
+	"$comment": "Project-level exceptions: corrections for popular extensions whose manifest says too little or too much. Keys are lower-case extension ids. User rules (autoDisableExtensions.extensions) override these.",
+	"dbaeumer.vscode-eslint": {
+		"$comment": "Does nothing without ESLint in the project.",
+		"deps": ["npm:eslint"],
+		"files": ["**/eslint.config.{js,mjs,cjs,ts,mts,cts}", "**/.eslintrc", "**/.eslintrc.{js,cjs,json,yml,yaml}"]
+	},
+	"esbenp.prettier-vscode": {
+		"$comment": "Only formats when chosen as formatter; projects using it carry a dependency or a config file.",
+		"deps": ["npm:prettier"],
+		"files": ["**/.prettierrc", "**/.prettierrc.{json,json5,yml,yaml,toml,js,cjs,mjs,ts}", "**/prettier.config.{js,cjs,mjs,ts}"]
+	},
+	"bradlc.vscode-tailwindcss": {
+		"deps": ["npm:tailwindcss"],
+		"files": ["**/tailwind.config.{js,cjs,mjs,ts}"]
+	},
+	"wallabyjs.console-ninja": {
+		"languages": ["javascript", "javascriptreact", "typescript", "typescriptreact"]
+	},
+	"formulahendry.auto-rename-tag": {
+		"languages": ["html", "xml", "javascriptreact", "typescriptreact", "vue", "svelte", "php"]
+	},
+	"burkeholland.simple-react-snippets": {
+		"deps": ["npm:react"]
+	},
+	"bierner.markdown-mermaid": {
+		"$comment": "Declares no language. The detector reports `mermaid` for .mmd files and ```mermaid blocks in Markdown.",
+		"languages": ["mermaid"]
+	},
+	"ms-azuretools.vscode-containers": {
+		"languages": ["dockerfile", "dockercompose"],
+		"files": ["**/Dockerfile", "**/*.Dockerfile", "**/{docker-compose,compose}*.{yml,yaml}"]
+	},
+	"ms-azuretools.vscode-docker": {
+		"languages": ["dockerfile", "dockercompose"],
+		"files": ["**/Dockerfile", "**/*.Dockerfile", "**/{docker-compose,compose}*.{yml,yaml}"]
+	}
+}
